@@ -145,6 +145,9 @@ VOLUME ["/etc/supervisor/conf.d", "/var/log/supervisor/"]
 
 # Define working directory.
 WORKDIR /usr/share/nginx/html
+COPY ./supervisor/conf.d/ /etc/supervisor/conf.d/
+COPY ./entrypoint.sh /usr/share/nginx/html/
+RUN chmod +x /usr/share/nginx/html/entrypoint.sh
 
 
 
