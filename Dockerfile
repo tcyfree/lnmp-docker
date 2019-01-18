@@ -32,6 +32,8 @@ EXPOSE 9000
 WORKDIR /usr/share/nginx/html
 
 #SUPERVISOR
+FROM bravist/php-cli-alpine-aliyun-app:1.12
+
 RUN apk update \
 	&& apk upgrade \
 	&& apk add supervisor \
@@ -39,6 +41,7 @@ RUN apk update \
 
 # Define mountable directories.
 VOLUME ["/etc/supervisor/conf.d", "/var/log/supervisor/"]
+
 
 # Define working directory.
 WORKDIR /usr/share/nginx/html
