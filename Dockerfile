@@ -133,3 +133,20 @@ COPY ./php/index.php /usr/share/nginx/html/public
 VOLUME ["/usr/share/nginx/html", "/usr/local/var/log/php7", "/var/run/"]
 EXPOSE 9000
 WORKDIR /usr/share/nginx/html
+
+#SUPERVISOR
+RUN apk update \
+	&& apk upgrade \
+	&& apk add supervisor \
+	&& rm -rf /var/cache/apk/*
+
+# Define mountable directories.
+VOLUME ["/etc/supervisor/conf.d", "/var/log/supervisor/"]
+
+# Define working directory.
+WORKDIR /usr/share/nginx/html
+
+
+
+#CMD ["supervisord", "--nodaemon", "--configuration", "/etc/supervisor/conf.d/supervisord.conf"]
+ENTRYPOINT ["./entrypoint.sh"]
