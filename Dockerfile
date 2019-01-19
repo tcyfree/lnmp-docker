@@ -118,14 +118,14 @@ php -- --install-dir=/usr/bin/ --filename=composer
 #	&& echo "${TIMEZONE}" > /etc/timezone \
 #	&& apk del tzdata \
 # 	&& rm -rf /var/cache/apk/*
-#
-#RUN mkdir -p /usr/share/nginx/html/public
-#RUN mkdir -p /usr/local/var/log/php7
-#RUN mkdir -p /usr/local/var/run
-#
-#COPY ./php/php-fpm.conf /etc/php7/
-#COPY ./php/www.conf /etc/php7/php-fpm.d/
-#COPY ./php/index.php /usr/share/nginx/html/public
+FROM bravist/php-fpm-alpine-aliyun-app:1.16
+RUN mkdir -p /usr/share/nginx/html/public
+RUN mkdir -p /usr/local/var/log/php7
+RUN mkdir -p /usr/local/var/run
+
+COPY ./php/php-fpm.conf /etc/php7/
+COPY ./php/www.conf /etc/php7/php-fpm.d/
+COPY ./php/index.php /usr/share/nginx/html/public
 ## Expose volumes
 VOLUME ["/usr/share/nginx/html", "/usr/local/var/log/php7", "/var/run/"]
 #EXPOSE 9000
