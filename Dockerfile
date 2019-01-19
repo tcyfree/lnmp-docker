@@ -103,34 +103,33 @@ RUN curl -sS https://getcomposer.org/installer | \
 php -- --install-dir=/usr/bin/ --filename=composer
 
 
-
-# ensure www-data user exists
-RUN set -x \
-	&& addgroup -g 82  -S www-data \
-	&& adduser -u 82 -D -S -G www-data www-data
-
-# Mirror mirror switch to Alpine Linux - http://dl-4.alpinelinux.org/alpine/
-RUN apk update \
-	&& apk upgrade \
-	&& apk add \
-		tzdata \
-	    php7-fpm@community \
-	&& cp /usr/share/zoneinfo/${TIMEZONE} /etc/localtime \
-	&& echo "${TIMEZONE}" > /etc/timezone \
-	&& apk del tzdata \
- 	&& rm -rf /var/cache/apk/*
-
-RUN mkdir -p /usr/share/nginx/html/public
-RUN mkdir -p /usr/local/var/log/php7
-RUN mkdir -p /usr/local/var/run
-
-COPY ./php/php-fpm.conf /etc/php7/
-COPY ./php/www.conf /etc/php7/php-fpm.d/
-COPY ./php/index.php /usr/share/nginx/html/public
-# Expose volumes
+## ensure www-data user exists
+#RUN set -x \
+#	&& addgroup -g 82  -S www-data \
+#	&& adduser -u 82 -D -S -G www-data www-data
+#
+## Mirror mirror switch to Alpine Linux - http://dl-4.alpinelinux.org/alpine/
+#RUN apk update \
+#	&& apk upgrade \
+#	&& apk add \
+#		tzdata \
+#	    php7-fpm@community \
+#	&& cp /usr/share/zoneinfo/${TIMEZONE} /etc/localtime \
+#	&& echo "${TIMEZONE}" > /etc/timezone \
+#	&& apk del tzdata \
+# 	&& rm -rf /var/cache/apk/*
+#
+#RUN mkdir -p /usr/share/nginx/html/public
+#RUN mkdir -p /usr/local/var/log/php7
+#RUN mkdir -p /usr/local/var/run
+#
+#COPY ./php/php-fpm.conf /etc/php7/
+#COPY ./php/www.conf /etc/php7/php-fpm.d/
+#COPY ./php/index.php /usr/share/nginx/html/public
+## Expose volumes
 VOLUME ["/usr/share/nginx/html", "/usr/local/var/log/php7", "/var/run/"]
-EXPOSE 9000
-WORKDIR /usr/share/nginx/html
+#EXPOSE 9000
+#WORKDIR /usr/share/nginx/html
 
 
 #SUPERVISOR
