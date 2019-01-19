@@ -14,7 +14,7 @@ COPY ./nginx/cert/ /etc/nginx/cert/
 # mount nginx log
 VOLUME /var/log/nginx
 
-#WORKDIR /usr/share/nginx/html
+WORKDIR /usr/share/nginx/html
 
 #Php
 FROM bravist/php-fpm-alpine-aliyun-app:1.16
