@@ -103,21 +103,21 @@ RUN curl -sS https://getcomposer.org/installer | \
 php -- --install-dir=/usr/bin/ --filename=composer
 
 
-## ensure www-data user exists
-#RUN set -x \
-#	&& addgroup -g 82  -S www-data \
-#	&& adduser -u 82 -D -S -G www-data www-data
-#
-## Mirror mirror switch to Alpine Linux - http://dl-4.alpinelinux.org/alpine/
-#RUN apk update \
-#	&& apk upgrade \
-#	&& apk add \
-#		tzdata \
-#	    php7-fpm@community \
-#	&& cp /usr/share/zoneinfo/${TIMEZONE} /etc/localtime \
-#	&& echo "${TIMEZONE}" > /etc/timezone \
-#	&& apk del tzdata \
-# 	&& rm -rf /var/cache/apk/*
+# ensure www-data user exists
+RUN set -x \
+	&& addgroup -g 82  -S www-data \
+	&& adduser -u 82 -D -S -G www-data www-data
+
+# Mirror mirror switch to Alpine Linux - http://dl-4.alpinelinux.org/alpine/
+RUN apk update \
+	&& apk upgrade \
+	&& apk add \
+		tzdata \
+	    php7-fpm@community \
+	&& cp /usr/share/zoneinfo/${TIMEZONE} /etc/localtime \
+	&& echo "${TIMEZONE}" > /etc/timezone \
+	&& apk del tzdata \
+ 	&& rm -rf /var/cache/apk/*
 FROM bravist/php-fpm-alpine-aliyun-app:1.16
 RUN mkdir -p /usr/share/nginx/html/public
 RUN mkdir -p /usr/local/var/log/php7
