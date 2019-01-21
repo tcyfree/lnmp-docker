@@ -45,7 +45,7 @@ RUN apk update \
 VOLUME ["/etc/supervisor/conf.d", "/var/log/supervisor/"]
 
 # Define working directory.
-WORKDIR /etc/supervisor/conf.d
+WORKDIR /usr/share/nginx/html
 
 #crond
 COPY ./supervisor/conf.d/ /etc/supervisor/conf.d/
