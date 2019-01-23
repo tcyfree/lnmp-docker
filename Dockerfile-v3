@@ -47,9 +47,9 @@ VOLUME /var/lib/mysql
 ENV MARIADB_USER root
 ENV MARIADB_PASS 123456
 #初始化数据库
-COPY ./mariadb/db_init.sh /root/
-RUN chmod 775 /root/db_init.sh
-RUN /root/db_init.sh
+COPY ./mariadb/db_init.sh /etc/
+RUN chmod 775 /etc/db_init.sh
+RUN /etc/db_init.sh
 
 #导出端口
 EXPOSE 3306
