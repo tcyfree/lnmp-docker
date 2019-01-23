@@ -1,6 +1,6 @@
 # LNMP Docker - 在国内快速构建LNMP容器环境
 
-快速构建开发、测试、生产L(Alpine Linux ) + N(Nginx) + M(MariaDB) + P(PHP7.1.14) + Supervisor + Redis + Crontab Docker 容器应用环境，
+快速构建开发、测试、生产L(Alpine Linux ) + N(Nginx) + M(MariaDB) + P(PHP7.1.14) + Supervisor + Redis + Crontab 的Docker 容器应用环境，
 
 
 
@@ -17,18 +17,4 @@
 
 ```bash
 $ docker exec -it lnmp-nginx sh
-```
-安装 [ctop](https://github.com/bcicen/ctop) 工具可以帮助查看容器在主机的使用情况。
-
-```bash
- $ ctop
- ctop - 15:36:35 CST      10 containers
-
-   NAME                        CID                         CPU                         MEM                         NET RX/TX                   IO R/W                      PIDS
- ◉  lnmp-mariadb                bd3cecff945e                             0%                     179M / 7.64G        90K / 276K                  27M / 0B                    0
- ◉  lnmp-nginx                  f4452c868dcc                             0%                      8M / 7.64G         14M / 5M                    5M / 0B                     0
- ◉  lnmp-php-fpm                a68c55c28995                             0%                      72M / 7.64G        1M / 13M                    20M / 0B                    0
- ◉  lnmp-php-supervisor         15182399966b                             1%                     1.8G / 7.64G        92M / 145M                  26M / 0B                    0
- ◉  lnmp-redis                  279b2f995b2a                             0%                      8M / 7.64G         62M / 16M                   2M / 0B                     0
- ◉  lnmp-www                    09c684094c18                              -                           -             -                           -                           -  
 ```
