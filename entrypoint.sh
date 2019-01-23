@@ -6,5 +6,7 @@ supervisord --nodaemon --configuration /etc/supervisor/conf.d/supervisord.conf
 
 exec redis-server --requirepass develop
 
+mysqld_safe
+
 
 

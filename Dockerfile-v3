@@ -27,8 +27,6 @@ RUN apk add supervisor \
 # Define mountable directories.
 VOLUME ["/etc/supervisor/conf.d", "/var/log/supervisor/"]
 COPY ./supervisor/conf.d/ /etc/supervisor/conf.d/
-COPY ./entrypoint.sh /usr/share/nginx/html/
-RUN chmod +x /usr/share/nginx/html/entrypoint.sh
 
 #4.ADD-CRONTABS
 COPY ./crontabs/default /var/spool/cron/crontabs/
@@ -38,11 +36,34 @@ RUN mkdir -p /var/log/cron \
 
 VOLUME /var/log/cron
 
-# Define working directory.
-WORKDIR /usr/share/nginx/html
-
 #5.ADD-REDIS
 RUN apk add redis
 
+#6.ADD-MARIADB
+RUN apk add mariadb
+VOLUME /var/lib/mysql
+
+#设置环境变量，便于管理
+ENV MARIADB_USER root
+ENV MARIADB_PASS 123456
+#初始化数据库
+COPY ./mariadb/db_init.sh /root/db_init.sh
+RUN chmod 775 /root/db_init.sh
+RUN /root/db_init.sh
+
+#导出端口
+EXPOSE 3306
+
+#添加启动文件
+ADD ./mariadb/run.sh /root/run.sh
+RUN chmod 775 /root/run.sh
+
+#设置默认启动命令
+#CMD ["/root/run.sh"]
+
+# Define working directory.
+WORKDIR /usr/share/nginx/html
+COPY ./entrypoint.sh /usr/share/nginx/html/
+RUN chmod +x /usr/share/nginx/html/entrypoint.sh
 #CMD ["supervisord", "--nodaemon", "--configuration", "/etc/supervisor/conf.d/supervisord.conf"]
 ENTRYPOINT ["./entrypoint.sh"]
