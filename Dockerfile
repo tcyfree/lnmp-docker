@@ -163,9 +163,7 @@ STOPSIGNAL SIGTERM
 
 
 #SUPERVISOR
-RUN apk update \
-	&& apk upgrade \
-	&& apk add supervisor \
+RUN apk add supervisor \
 	&& rm -rf /var/cache/apk/*
 
 # Define mountable directories.
