@@ -47,7 +47,7 @@ VOLUME /var/lib/mysql
 ENV MARIADB_USER root
 ENV MARIADB_PASS 123456
 #初始化数据库
-COPY ./mariadb/db_init.sh /root/db_init.sh
+COPY ./mariadb/db_init.sh /root/
 RUN chmod 775 /root/db_init.sh
 RUN /root/db_init.sh
 
@@ -55,9 +55,8 @@ RUN /root/db_init.sh
 EXPOSE 3306
 
 #添加启动文件
-ADD ./mariadb/run.sh /root/run.sh
-RUN chmod 775 /root/run.sh
-
+#ADD ./mariadb/run.sh /root/run.sh
+#RUN chmod 775 /root/run.sh
 #设置默认启动命令
 #CMD ["/root/run.sh"]
 
