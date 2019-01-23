@@ -12,7 +12,7 @@
 + 可独立配置容器运行时环境参数，支持容器运行日志、数据与宿主机分离，方便调试与维护。
 + 支持Nginx虚拟站点、SSL证书服务。配置参考Nginx中`cert`与`conf.d`目录文件。
 
-所有的容器基于Alpine Linux ，默认使用`sh` shell，进入容器时使用该命令：*docker exec -it container_name sh*
+所有的容器基于Alpine Linux,默认使用`sh` shell，进入容器时使用该命令：*docker exec -it container_name sh*
 
 ```bash
 $ docker exec -it lnmp-nginx sh
