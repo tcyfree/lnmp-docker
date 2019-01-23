@@ -37,22 +37,22 @@ RUN mkdir -p /var/log/cron \
 VOLUME /var/log/cron
 
 #5.ADD-REDIS
-RUN apk add redis
+#RUN apk add redis
 
-#6.ADD-MARIADB
-RUN apk add mariadb
-VOLUME /var/lib/mysql
+#6.ADD-MARIADB不能用
+#RUN apk add mariadb=10.3.12-r2
+#VOLUME /var/lib/mysql
 
 #设置环境变量，便于管理
-ENV MARIADB_USER root
-ENV MARIADB_PASS 123456
+#ENV MARIADB_USER root
+#ENV MARIADB_PASS 123456
 ##初始化数据库
 #COPY ./mariadb/db_init.sh /etc/
 #RUN chmod 775 /etc/db_init.sh
 #RUN /etc/db_init.sh
 
 #导出端口
-EXPOSE 3306
+#EXPOSE 3306
 
 #添加启动文件
 #ADD ./mariadb/run.sh /root/run.sh
