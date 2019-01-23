@@ -1,7 +1,6 @@
 # LNMP Docker - 在国内快速构建LNMP容器环境
 
-快速构建开发、测试、生产L(Alpine Linux ) + N(Nginx) + M(MariaDB) + P(PHP7.1.14) + Supervisor + Redis + Crontab 的Docker 容器应用环境，
-
+快速构建开发、测试、生产L(Alpine Linux ) + N(Nginx) + P(PHP7.1.14) + Supervisor + Crontab 的Docker 容器应用环境，
 
 
 ## 主要特性
