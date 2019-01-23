@@ -41,5 +41,8 @@ VOLUME /var/log/cron
 # Define working directory.
 WORKDIR /usr/share/nginx/html
 
+#5.ADD-REDIS
+RUN apk add redis
+
 #CMD ["supervisord", "--nodaemon", "--configuration", "/etc/supervisor/conf.d/supervisord.conf"]
 ENTRYPOINT ["./entrypoint.sh"]
