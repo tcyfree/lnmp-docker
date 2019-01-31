@@ -13,7 +13,7 @@ RUN apk add nginx
 
 COPY ./nginx/conf.d/default.conf /etc/nginx/conf.d/
 COPY ./nginx/nginx.conf /etc/nginx/
-COPY ./nginx/cert/ /etc/nginx/cert/
+#COPY ./nginx/cert/ /etc/nginx/cert/
 # Expose volumes
 
 VOLUME ["/usr/share/nginx/html", "/usr/local/var/log/php7", "/var/run/"]
