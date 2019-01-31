@@ -37,10 +37,28 @@ RUN mkdir -p /var/log/cron \
 VOLUME /var/log/cron
 
 #5.ADD-REDIS
-RUN mkdir -p /root/.ssh
-RUN composer global require laravel/envoy
+#RUN apk add redis
 
-VOLUME ["/root/.ssh"]
+#6.ADD-MARIADB不能用
+#RUN apk add mariadb=10.3.12-r2
+#VOLUME /var/lib/mysql
+
+#设置环境变量，便于管理
+#ENV MARIADB_USER root
+#ENV MARIADB_PASS 123456
+##初始化数据库
+#COPY ./mariadb/db_init.sh /etc/
+#RUN chmod 775 /etc/db_init.sh
+#RUN /etc/db_init.sh
+
+#导出端口
+#EXPOSE 3306
+
+#添加启动文件
+#ADD ./mariadb/run.sh /root/run.sh
+#RUN chmod 775 /root/run.sh
+#设置默认启动命令
+#CMD ["/root/run.sh"]
 
 # Define working directory.
 WORKDIR /usr/share/nginx/html
