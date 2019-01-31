@@ -1,15 +1,16 @@
 #1.ADD-PHP-FPM7.1.14
-FROM bravist/php-fpm-alpine-aliyun-app:1.16
-RUN mkdir -p /usr/share/nginx/html/public/
-RUN mkdir -p /usr/local/var/log/php7/
-RUN mkdir -p /usr/local/var/run/
-
-COPY ./php/php-fpm.conf /etc/php7/
-COPY ./php/www.conf /etc/php7/php-fpm.d/
-COPY ./php/index.php /usr/share/nginx/html/public/
+#FROM bravist/php-fpm-alpine-aliyun-app:1.16
+#RUN mkdir -p /usr/share/nginx/html/public/
+#RUN mkdir -p /usr/local/var/log/php7/
+#RUN mkdir -p /usr/local/var/run/
+#
+#COPY ./php/php-fpm.conf /etc/php7/
+#COPY ./php/www.conf /etc/php7/php-fpm.d/
+#COPY ./php/index.php /usr/share/nginx/html/public/
+FROM alpine
 
 #2.ADD-NGINX
-#RUN apk add nginx
+RUN apk add nginx
 #
 #COPY ./nginx/conf.d/default.conf /etc/nginx/conf.d/
 #COPY ./nginx/nginx.conf /etc/nginx/
