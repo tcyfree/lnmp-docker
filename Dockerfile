@@ -9,16 +9,16 @@ COPY ./php/www.conf /etc/php7/php-fpm.d/
 COPY ./php/index.php /usr/share/nginx/html/public/
 
 #2.ADD-NGINX
-RUN apk add nginx
-
-COPY ./nginx/conf.d/default.conf /etc/nginx/conf.d/
-COPY ./nginx/nginx.conf /etc/nginx/
-#COPY ./nginx/cert/ /etc/nginx/cert/
-# Expose volumes
-
-VOLUME ["/usr/share/nginx/html", "/usr/local/var/log/php7", "/var/run/"]
-WORKDIR /usr/share/nginx/html
-
+#RUN apk add nginx
+#
+#COPY ./nginx/conf.d/default.conf /etc/nginx/conf.d/
+#COPY ./nginx/nginx.conf /etc/nginx/
+##COPY ./nginx/cert/ /etc/nginx/cert/
+## Expose volumes
+#
+#VOLUME ["/usr/share/nginx/html", "/usr/local/var/log/php7", "/var/run/"]
+#WORKDIR /usr/share/nginx/html
+#
 
 #3.ADD-SUPERVISOR
 RUN apk add supervisor \
