@@ -21,14 +21,14 @@ COPY ./php/index.php /usr/share/nginx/html/public/
 #
 
 #3.ADD-SUPERVISOR
-RUN apk add supervisor \
- && rm -rf /var/cache/apk/*
-
-# Define mountable directories.
-VOLUME ["/etc/supervisor/conf.d", "/var/log/supervisor/"]
-COPY ./supervisor/conf.d/ /etc/supervisor/conf.d/
-COPY ./entrypoint.sh /usr/share/nginx/html/
-RUN chmod +x /usr/share/nginx/html/entrypoint.sh
+#RUN apk add supervisor \
+# && rm -rf /var/cache/apk/*
+#
+## Define mountable directories.
+#VOLUME ["/etc/supervisor/conf.d", "/var/log/supervisor/"]
+#COPY ./supervisor/conf.d/ /etc/supervisor/conf.d/
+#COPY ./entrypoint.sh /usr/share/nginx/html/
+#RUN chmod +x /usr/share/nginx/html/entrypoint.sh
 
 #4.ADD-CRONTABS
 COPY ./crontabs/default /var/spool/cron/crontabs/
