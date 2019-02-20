@@ -4,6 +4,7 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/dnmp.iml" filepath="$PROJECT_DIR$/.idea/dnmp.iml" />
       <module fileurl="file://$PROJECT_DIR$/../lnmp-docker/.idea/lnmp-docker.iml" filepath="$PROJECT_DIR$/../lnmp-docker/.idea/lnmp-docker.iml" />
+      <module fileurl="file://$USER_HOME$/Desktop/nginx-php-supervisor-laravel/.idea/nginx-php-supervisor-laravel.iml" filepath="$USER_HOME$/Desktop/nginx-php-supervisor-laravel/.idea/nginx-php-supervisor-laravel.iml" />
     </modules>
   </component>
 </project>
