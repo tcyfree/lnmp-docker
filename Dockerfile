@@ -1,6 +1,8 @@
-#1.ADD-PHP-FPM7.1.14
-FROM php:alpine
-#2.ADD-NGINX
+FROM bravist/php-fpm-alpine-aliyun-app:1.16
+
+RUN echo "https://mirrors.ustc.edu.cn/alpine/v3.3/main" > /etc/apk/repositories \
+    && echo "https://mirrors.ustc.edu.cn/alpine/v3.3/community" >> /etc/apk/repositories
+
 RUN apk add nginx
 
 RUN mkdir -p /usr/share/nginx/html/public/
@@ -11,60 +13,36 @@ COPY ./php/php-fpm.conf /etc/php7/
 COPY ./php/www.conf /etc/php7/php-fpm.d/
 COPY ./php/index.php /usr/share/nginx/html/public/
 
-
-
-COPY ./nginx/conf.d/default.conf /etc/nginx/conf.d/
+COPY ./nginx/default.conf /etc/nginx/conf.d/
 COPY ./nginx/nginx.conf /etc/nginx/
-COPY ./nginx/cert/ /etc/nginx/cert/
 # Expose volumes
 
-VOLUME ["/usr/share/nginx/html", "/usr/local/var/log/php7", "/var/run/"]
+VOLUME ["/usr/share/nginx/html", "/usr/local/var/log/php7", "/var/run/"
 WORKDIR /usr/share/nginx/html
 
 
-#3.ADD-SUPERVISOR
+#SUPERVISOR
 RUN apk add supervisor \
- && rm -rf /var/cache/apk/*
+	&& rm -rf /var/cache/apk/*
 
 # Define mountable directories.
 VOLUME ["/etc/supervisor/conf.d", "/var/log/supervisor/"]
-COPY ./supervisor/conf.d/ /etc/supervisor/conf.d/
-
-#4.ADD-CRONTABS
-COPY ./crontabs/default /var/spool/cron/crontabs/
-RUN cat /var/spool/cron/crontabs/default >> /var/spool/cron/crontabs/root
-RUN mkdir -p /var/log/cron \
- && touch /var/log/cron/cron.log
-
-VOLUME /var/log/cron
-
-#5.ADD-REDIS
-#RUN apk add redis
-
-#6.ADD-MARIADB不能用
-#RUN apk add mariadb=10.3.12-r2
-#VOLUME /var/lib/mysql
-
-#设置环境变量，便于管理
-#ENV MARIADB_USER root
-#ENV MARIADB_PASS 123456
-##初始化数据库
-#COPY ./mariadb/db_init.sh /etc/
-#RUN chmod 775 /etc/db_init.sh
-#RUN /etc/db_init.sh
-
-#导出端口
-#EXPOSE 3306
-
-#添加启动文件
-#ADD ./mariadb/run.sh /root/run.sh
-#RUN chmod 775 /root/run.sh
-#设置默认启动命令
-#CMD ["/root/run.sh"]
 
 # Define working directory.
 WORKDIR /usr/share/nginx/html
+
+#crond
+COPY ./supervisor/conf.d/ /etc/supervisor/conf.d/
 COPY ./entrypoint.sh /usr/share/nginx/html/
 RUN chmod +x /usr/share/nginx/html/entrypoint.sh
+
+COPY ./crontabs/default /var/spool/cron/crontabs/
+RUN cat /var/spool/cron/crontabs/default >> /var/spool/cron/crontabs/root
+RUN mkdir -p /var/log/cron \
+	&& touch /var/log/cron/cron.log
+	
+VOLUME /var/log/cron
+
+
 #CMD ["supervisord", "--nodaemon", "--configuration", "/etc/supervisor/conf.d/supervisord.conf"]
 ENTRYPOINT ["./entrypoint.sh"]
