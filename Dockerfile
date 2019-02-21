@@ -1,5 +1,5 @@
 #1.ADD-PHP-FPM7.1.14
-FROM php:5.6-fpm
+FROM nginx:alpine
 
 RUN mkdir -p /usr/share/nginx/html/public/
 #RUN mkdir -p /usr/local/var/log/php7/
@@ -10,7 +10,7 @@ RUN mkdir -p /usr/share/nginx/html/public/
 COPY ./php/index.php /usr/share/nginx/html/public/
 
 #2.ADD-NGINX
-RUN apk add nginx
+RUN apk add php
 COPY ./nginx/conf.d/default.conf /etc/nginx/conf.d/
 COPY ./nginx/nginx.conf /etc/nginx/
 COPY ./nginx/cert/ /etc/nginx/cert/
