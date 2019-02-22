@@ -1,6 +1,6 @@
 #1.Base
 #FROM gliderlabs/alpine
-FROM 7.1-fpm-alpine3.8
+FROM php:7.1-fpm-alpine3.8
 
 
 # ensure www-data user exists
