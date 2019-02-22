@@ -24,7 +24,7 @@ COPY ./php/www.conf /etc/php7/php-fpm.d/
 COPY ./php/index.php /usr/share/nginx/html/public/
 
 #2.ADD-NGINX
-RUN apk add php
+RUN apk add nginx
 COPY ./nginx/conf.d/default.conf /etc/nginx/conf.d/
 COPY ./nginx/nginx.conf /etc/nginx/
 COPY ./nginx/cert/ /etc/nginx/cert/
