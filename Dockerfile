@@ -1,11 +1,13 @@
 #1.Base
+#FROM gliderlabs/alpine
+#FROM php:7.2.15-alpine3.8
 FROM gliderlabs/alpine
 
 
 # ensure www-data user exists
-RUN set -x \
-	&& addgroup -g 82  -S www-data \
-	&& adduser -u 82 -D -S -G www-data www-data
+#RUN set -x \
+#	&& addgroup -g 82  -S www-data \
+#	&& adduser -u 82 -D -S -G www-data www-data
 
 RUN apk update \
     apk add php7 nginx
@@ -25,8 +27,6 @@ RUN apk add php7-mysqli \
 RUN mkdir -p /usr/share/nginx/html/public/
 RUN mkdir -p /usr/local/var/log/php7/
 RUN mkdir -p /usr/local/var/run/
-RUN mkdir -p /run/nginx
-RUN touch /run/nginx/nginx.pid
 
 COPY ./php/php-fpm.conf /etc/php7/
 COPY ./php/www.conf /etc/php7/php-fpm.d/
@@ -37,6 +37,8 @@ RUN apk add nginx
 COPY ./nginx/conf.d/default.conf /etc/nginx/conf.d/
 COPY ./nginx/nginx.conf /etc/nginx/
 COPY ./nginx/cert/ /etc/nginx/cert/
+RUN mkdir -p /run/nginx
+RUN touch /run/nginx/nginx.pid
 # Expose volumes
 
 VOLUME ["/usr/share/nginx/html", "/usr/local/var/log/php7", "/var/run/"]
