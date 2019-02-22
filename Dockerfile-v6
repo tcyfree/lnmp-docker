@@ -22,6 +22,9 @@ RUN apk add php7-mysqli \
     php7-memcached \
     php7-redis
 
+RUN mkdir -p /usr/share/nginx/html/public/
+RUN mkdir -p /usr/local/var/log/php7/
+RUN mkdir -p /usr/local/var/run/
 RUN mkdir -p /run/nginx
 RUN touch /run/nginx/nginx.pid
 
