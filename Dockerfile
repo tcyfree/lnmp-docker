@@ -11,7 +11,7 @@ FROM php:7.1-fpm-alpine3.8
 RUN apk update \
     apk add nginx
 
-RUN apk add php-fpm
+#RUN apk add php-fpm
 #RUN apk add php7-mysqli \
 #    php7-pdo_mysql \
 #    php7-mbstring \
