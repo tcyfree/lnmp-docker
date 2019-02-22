@@ -1,6 +1,6 @@
 #1.Base
 #FROM gliderlabs/alpine
-FROM php:7.2.15-alpine3.8
+FROM php:alpine
 
 
 # ensure www-data user exists
