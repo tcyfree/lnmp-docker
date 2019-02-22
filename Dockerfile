@@ -1,6 +1,12 @@
 #1.Base
 FROM gliderlabs/alpine
 
+
+# ensure www-data user exists
+RUN set -x \
+	&& addgroup -g 82  -S www-data \
+	&& adduser -u 82 -D -S -G www-data www-data
+
 RUN apk update \
     apk add php7 nginx
 
