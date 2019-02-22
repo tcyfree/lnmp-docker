@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 #1.Base
 FROM gliderlabs/alpine
 
@@ -21,10 +22,21 @@ RUN touch /run/nginx/nginx.pid
 
 COPY ./php/php-fpm.conf /etc/php7/
 COPY ./php/www.conf /etc/php7/php-fpm.d/
+=======
+#1.ADD-PHP-FPM7.1.14
+FROM nginx:alpine
+
+RUN mkdir -p /usr/share/nginx/html/public/
+#RUN mkdir -p /usr/local/var/log/php7/
+#RUN mkdir -p /usr/local/var/run/
+#
+#COPY ./php/php-fpm.conf /etc/php7/
+#COPY ./php/www.conf /etc/php7/php-fpm.d/
+>>>>>>> 07fa0024c1c67584024dea9cf253a8f781cb8d57
 COPY ./php/index.php /usr/share/nginx/html/public/
 
 #2.ADD-NGINX
-RUN apk add nginx
+RUN apk add php
 COPY ./nginx/conf.d/default.conf /etc/nginx/conf.d/
 COPY ./nginx/nginx.conf /etc/nginx/
 COPY ./nginx/cert/ /etc/nginx/cert/
