@@ -1,6 +1,6 @@
 #1.Base
 #FROM gliderlabs/alpine
-FROM php:7.2.15-alpine3.8
+FROM alpine
 
 
 # ensure www-data user exists
@@ -11,6 +11,7 @@ FROM php:7.2.15-alpine3.8
 RUN apk update \
     apk add nginx
 
+RUN apk add php-fpm
 #RUN apk add php7-mysqli \
 #    php7-pdo_mysql \
 #    php7-mbstring \
