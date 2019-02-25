@@ -1,4 +1,4 @@
-# ANPSC Docker - 快速构建ANPSC容器环境
+#ANPSC Docker - 快速构建ANPSC容器环境
 
 快速构建开发、测试、生产L(Alpine Linux ) + N(Nginx) + P(PHP7) + Supervisor + Crontab 的Docker 容器应用环境，
 
