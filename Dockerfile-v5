@@ -56,7 +56,7 @@ RUN apk update \
 	    php7-redis\
 	    php7-tokenizer \
 	    php7-gd \
-		php7-mongodb@testing \
+		php7-mongodb\
 		php7-fileinfo \
 		php7-zmq \
 		php7-memcached \
