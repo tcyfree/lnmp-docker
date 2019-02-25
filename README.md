@@ -3,7 +3,7 @@
 快速构建开发、测试、生产A(Alpine) + N(Nginx) + P(PHP7) + Supervisor + Crontab 的Docker 容器应用环境，
 
 
-## 主要特性
+##主要特性
 
 + 基于[Alpine Linux](https://alpinelinux.org/) 最小化Linux环境加速构建镜像。 
 + 支持Nginx虚拟站点、SSL证书服务。配置参考Nginx中`cert`与`conf.d`目录文件。
