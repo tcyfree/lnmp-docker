@@ -69,17 +69,6 @@ RUN apk update \
 # https://github.com/docker-library/php/issues/240
 # https://gist.github.com/guillemcanal/be3db96d3caa315b4e2b8259cab7d07e
 # https://forum.alpinelinux.org/forum/installation/php-iconv-issue
-#RUN apk add php7-fpm\
-#    php7-mysqli \
-#    php7-pdo_mysql \
-#    php7-mbstring \
-#    php7-json \
-#    php7-zlib \
-#    php7-gd \
-#    php7-intl \
-#    php7-session \
-#    php7-memcached \
-#    php7-redis
 
 RUN mkdir -p /usr/local/var/log/php7/
 RUN mkdir -p /usr/local/var/run/
