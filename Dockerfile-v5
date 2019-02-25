@@ -20,9 +20,9 @@ ENV COMPOSER_ALLOW_SUPERUSER 1
 RUN apk update \
 	&& apk upgrade \
 	&& apk add \
-	    php7-fpm\
 		curl \
 		tzdata \
+		php7-fpm\
 	    php7 \
 	    php7-dev \
 	    php7-apcu \
