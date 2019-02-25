@@ -9,7 +9,7 @@ FROM alpine
 #	&& adduser -u 82 -D -S -G www-data www-data
 
 RUN apk add nginx\
-    apk add php7-mysqli \
+    php7-mysqli \
     php7-pdo_mysql \
     php7-mbstring \
     php7-json \
