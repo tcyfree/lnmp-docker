@@ -13,3 +13,6 @@
 ```bash
 $ docker exec -it container_name sh
 ```
+
+运行启动：
+[phpinfo](https://github.com/tcyfree/anpsc/blob/master/phpinfo.png)
