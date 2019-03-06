@@ -155,5 +155,6 @@ VOLUME /var/log/cron
 WORKDIR /usr/share/nginx/html
 COPY ./entrypoint.sh /usr/share/nginx/html/
 RUN chmod +x /usr/share/nginx/html/entrypoint.sh
+
 #CMD ["supervisord", "--nodaemon", "--configuration", "/etc/supervisor/conf.d/supervisord.conf"]
 ENTRYPOINT ["./entrypoint.sh"]
