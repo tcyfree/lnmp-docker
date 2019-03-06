@@ -1,1 +1,0 @@
-# nginx-php-supervisor-laravel

@@ -8,8 +8,8 @@
 + 基于[Alpine Linux](https://alpinelinux.org/) 最小化Linux环境加速构建镜像。 
 + 支持Nginx虚拟站点、SSL证书服务。配置参考Nginx中`cert`与`conf.d`目录文件。
 
-所有的容器基于Alpine Linux,默认使用`sh` shell，进入容器时使用该命令：*docker exec -it container_name sh*
+所有的容器基于Alpine Linux,默认使用`sh` shell，进入容器时使用该命令：
 
 ```bash
-$ docker exec -it lnmp-nginx sh
+$ docker exec -it container_name sh
 ```
