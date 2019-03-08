@@ -79,7 +79,6 @@ COPY ./php/www.conf /etc/php7/php-fpm.d/
 #ENV LD_PRELOAD /usr/lib/preloadable_libiconv.so php
 #RUN rm -rf /var/cache/apk/*
 
-
 # Set environments
 RUN sed -i "s|;*date.timezone =.*|date.timezone = ${TIMEZONE}|i" /etc/php7/php.ini && \
 	sed -i "s|;*memory_limit =.*|memory_limit = ${PHP_MEMORY_LIMIT}|i" /etc/php7/php.ini && \
