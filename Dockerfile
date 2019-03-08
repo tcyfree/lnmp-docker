@@ -75,9 +75,9 @@ RUN mkdir -p /usr/local/var/run/
 COPY ./php/php-fpm.conf /etc/php7/
 COPY ./php/www.conf /etc/php7/php-fpm.d/
 
-RUN apk add --no-cache --repository http://dl-3.alpinelinux.org/alpine/edge/testing gnu-libiconv
-ENV LD_PRELOAD /usr/lib/preloadable_libiconv.so php
-RUN rm -rf /var/cache/apk/*
+#RUN apk add --no-cache --repository http://dl-3.alpinelinux.org/alpine/edge/testing gnu-libiconv
+#ENV LD_PRELOAD /usr/lib/preloadable_libiconv.so php
+#RUN rm -rf /var/cache/apk/*
 
 
 # Set environments

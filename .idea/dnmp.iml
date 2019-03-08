@@ -6,5 +6,6 @@
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="module" module-name="lnmp-docker" />
     <orderEntry type="module" module-name="nginx-php-supervisor-laravel" />
+    <orderEntry type="module" module-name="lnmp-docker" />
   </component>
 </module>
