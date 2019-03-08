@@ -1,6 +1,6 @@
 #ANPSC Docker - 快速构建ANPSC容器环境
 
-快速构建开发、测试、生产Alpine + Nginx + PHP7 + Composer + Supervisor + Crontab + Laravel 的Docker 容器应用环境
+快速构建开发、测试、生产Docker + Alpine + Nginx + PHP7 + Composer + Supervisor + Crontab + Laravel 的Docker 容器应用环境
 
 
 ##主要特性
