@@ -36,3 +36,5 @@ $ docker exec -it container_name sh
     docker push tcyfree/anpsc:v1
 
 本镜像地址：https://hub.docker.com/r/tcyfree/apnsc
+
+## 相关文档 ：https://segmentfault.com/a/1190000018415600
