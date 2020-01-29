@@ -21,7 +21,7 @@ $ docker exec -it container_name sh
 ## 启动镜像
     docker run -d -p 8096:80 --name=anpsc-v1 anpsc:v1
  
-![phpinfo](https://github.com/tcyfree/anpsc/blob/master/phpinfo.png)
+![phpinfo](https://github.com/tcyfree/apnsc/blob/master/phpinfo.png)
     
 ## 进入镜像容器内
     docker exec -it anpsc-v1 sh
