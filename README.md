@@ -15,26 +15,26 @@ $ docker exec -it container_name sh
 ```
 
 ## 构建镜像
-    git clone https://github.com/tcyfree/anpsc.git
-    docker build --no-cache -t anpsc:v1 .
+    git clone https://github.com/tcyfree/lnmp-docker.git
+    docker build --no-cache -t lnmp-docker:v1 .
     
 ## 启动镜像
-    docker run -d -p 8096:80 --name=anpsc-v1 anpsc:v1
+    docker run -d -p 8096:80 --name=lnmp-docker-v1 lnmp-docker:v1
  
 ![phpinfo](https://github.com/tcyfree/apnsc/blob/master/phpinfo.png)
     
 ## 进入镜像容器内
-    docker exec -it anpsc-v1 sh
+    docker exec -it lnmp-docker-v1 sh
 
         
 
 ## 推送镜像
     docker login # 先登录
     
-    docker tag anpsc:v1 tcyfree/anpsc:v1
+    docker tag lnmp-docker:v1 tcyfree/lnmp-docker:v1
     
-    docker push tcyfree/anpsc:v1
+    docker push tcyfree/lnmp-docker:v1
 
-本镜像地址：https://hub.docker.com/r/tcyfree/apnsc
+本镜像地址：https://hub.docker.com/r/tcyfree/lnmp-docker
 
 ## 相关文档 ：https://segmentfault.com/a/1190000018415600
