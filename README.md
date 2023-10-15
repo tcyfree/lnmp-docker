@@ -35,6 +35,6 @@ $ docker exec -it container_name sh
     
     docker push tcyfree/lnmp-docker:v1
 
-本镜像地址：https://hub.docker.com/r/tcyfree/lnmp-docker
+本镜像地址：https://hub.docker.com/r/tcyfree/lnmp-docker/tags
 
 ## 相关文档 ：https://segmentfault.com/a/1190000018415600
