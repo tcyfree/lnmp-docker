@@ -18,7 +18,7 @@ $ docker exec -it container_name sh
     git clone https://github.com/tcyfree/lnmp-docker.git
     docker build --no-cache -t lnmp-docker:v1 .
     
-## 启动镜像
+## 启动镜像 -itd
     docker run -d -p 8096:80 --name=lnmp-docker-v1 lnmp-docker:v1
  
 ![phpinfo](https://github.com/tcyfree/apnsc/blob/master/phpinfo.png)
